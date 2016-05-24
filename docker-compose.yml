@@ -1,0 +1,13 @@
+version: '2'
+# > docker-compose run php
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+    - "8001:80"
+    volumes:
+    - ./app/:/var/www/html/
+
+
