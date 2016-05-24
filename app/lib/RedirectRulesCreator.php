@@ -60,11 +60,11 @@ class RedirectRulesCreator
         $num = count($data);
         $row++;
         for ($c = 0; $c < $num; $c++) {
-
           $srcStrg = str_replace($this->srcStringsToReplace, $this->srcStringsReplaceWith, $data[0]);
           $targetStrg = $data[1];
+        }
+        if ((strlen($srcStrg) > 0) && (strlen($targetStrg) > 0)) {
           $retval .= sprintf($this->redirectRuleOutput, $srcStrg, $targetStrg);
-
           if ($format == 'html')
             $retval .= "<br />\n";
         }

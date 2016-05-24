@@ -7,7 +7,7 @@ spl_autoload_register(function ($class) {
 
 $cr = new RedirectRulesCreator();
 $cr->setConfiguration(array(
-  "pathToCSV" => "data/data.csv",
+  "pathToCSV" => "custom_data/realurl-redirects-20160523.csv",
   "srcStringsToReplace" => "",
   "srcStringsReplaceWith" => "",
   "delimiter" => ";")
