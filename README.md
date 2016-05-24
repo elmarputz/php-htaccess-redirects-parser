@@ -1,0 +1,1 @@
+# php-htaccess-redirects-parser
