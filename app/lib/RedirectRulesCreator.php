@@ -40,7 +40,7 @@ class RedirectRulesCreator
   public function setConfiguration(array $config) {
     $this->pathToCSV = $config['pathToCSV'] ?? null;
     $this->srcStringsToReplace = $config['srcStringsToReplace'] ?? array("http://www.mydomain.at", "http://www.myotherdomain.at");
-    $this->srcStringsReplaceWith = $config['srcStringsReplaceWith'] ?? "";
+    $this->srcStringsReplaceWith = $config['srcStringsReplaceWith'] ?? "  ";
     $this->delimiter = $config['delimiter'] ?? ",";
     $this->redirectRuleOutput = $config['redirectRuleOutput'] ?? 'RedirectMatch 301 %s %s';
   }
