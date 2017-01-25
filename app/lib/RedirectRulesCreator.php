@@ -100,10 +100,12 @@ class RedirectRulesCreator
               $srcStrg .= $this->newLine;
               $srcStrg .= "RewriteCond %{QUERY_STRING} " . $qskey . "=" .preg_quote($qsvalue);
             }
-            // target
+
+        
+            // target - '?' and 'QSD' (Apache 2.4 >) at the end makes sure, that the querystring is 
+            // not applied at the end of the target url
              $srcStrg .= $this->newLine;
-             $targetStrg = "RewriteRule .* " . $data[1] ."? [R=301,L]";
-             var_dump($targetStrg);
+             $targetStrg = "RewriteRule .* " . preg_quote($data[1]) ."? [QSD,R=301,L]";
           }
 
           // simple redirect without query string 
