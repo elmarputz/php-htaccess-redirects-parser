@@ -95,13 +95,15 @@ class RedirectRulesCreator
             // path 
             $srcStrg .= "RewriteCond %{REQUEST_URI} " . preg_quote($url['path']);
 
-            foreach ($queryString as $qs) {
+        
+            foreach ($queryString as $qskey => $qsvalue) {
               $srcStrg .= $this->newLine;
-              $srcStrg .= "RewriteCond %{QUERY_STRING} " . preg_quote($qs);
+              $srcStrg .= "RewriteCond %{QUERY_STRING} " . $qskey . "=" .preg_quote($qsvalue);
             }
             // target
              $srcStrg .= $this->newLine;
-             $targetStrg = "RewriteRule .* " . $data[1] ." [R=301,L]";
+             $targetStrg = "RewriteRule .* " . $data[1] ."? [R=301,L]";
+             var_dump($targetStrg);
           }
 
           // simple redirect without query string 
