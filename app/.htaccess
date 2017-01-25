@@ -1,0 +1,10 @@
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^localhost:8000$ [NC]
+RewriteCond %{REQUEST_URI} airfield/pages/product/detail\.grid
+RewriteCond %{QUERY_STRING} 76\-25451\-366\-01\-34
+RewriteCond %{QUERY_STRING} transparenter\-blazer\-mit\-kordel\-schliesse\-always\-blazer
+RewriteCond %{QUERY_STRING} de
+RewriteCond %{QUERY_STRING} clothing\.kategorie\.blazer
+RewriteCond %{QUERY_STRING} 2
+RewriteRule .* https://afshop1.site.at/index.php/transparenter-blazer-mit-kordel-schliesse-always-blazer-64973 [R=301,L]
