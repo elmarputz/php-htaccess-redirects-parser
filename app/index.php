@@ -10,7 +10,8 @@ $cr->setConfiguration(array(
   "pathToCSV" => "data/data.csv",
   "srcStringsToReplace" => "",
   "srcStringsReplaceWith" => "",
-  "delimiter" => ";")
+  "delimiter" => ";",
+  "showComment" => false)
 );
 
 echo $cr->parseData('html');

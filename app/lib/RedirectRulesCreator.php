@@ -38,6 +38,11 @@ class RedirectRulesCreator
    */
   protected $newLine = "";
 
+  /**
+   * @var bool show source line as comment in output
+   */
+  protected $showComment = "";
+
 
   /**
    * RedirectRulesCreator constructor.
@@ -51,6 +56,7 @@ class RedirectRulesCreator
     $this->delimiter = $config['delimiter'] ?? ",";
     $this->newLine = "<br /> \n";
     $this->redirectRuleOutput = $config['redirectRuleOutput'] ?? 'RedirectMatch 301 %s %s';
+    $this->showComment = (bool)$config['showComment'];
 
   }
 
@@ -117,7 +123,9 @@ class RedirectRulesCreator
         }
 
         if ((strlen($srcStrg) > 0) && (strlen($targetStrg) > 0)) {
-          
+          if ($this->showComment) {
+            $retval .= '# ' . implode($this->delimiter, $data) . $this->newLine;
+          }
           if (!$urlWithQueryString)
             $retval .= sprintf($this->redirectRuleOutput, $srcStrg, $targetStrg);
           else 
