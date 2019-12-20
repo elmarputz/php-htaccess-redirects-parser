@@ -7,15 +7,16 @@ spl_autoload_register(function ($class) {
 
 $cr = new RedirectRulesCreator();
 $cr->setConfiguration(array(
-  "pathToCSV" => "data/data.csv",
-  "srcStringsToReplace" => "",
-  "srcStringsReplaceWith" => "",
-  "delimiter" => ";",
+  "pathToCSV" => "data/redirects.csv",
+  "srcStringsToReplace" => "www.schachermayer",
+  "srcStringsReplaceWith" => "http://www.schachermayer",
+  "delimiter" => ",",
+  "newLineChar" => PHP_EOL, 
   "showComment" => false)
 );
 
-echo $cr->parseData('html');
-
+// echo $cr->parseData('html');
+file_put_contents ('data/output.txt' , $cr->parseData('html'));
 
 
 

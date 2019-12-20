@@ -54,7 +54,7 @@ class RedirectRulesCreator
     $this->srcStringsToReplace = $config['srcStringsToReplace'] ?? array("http://www.mydomain.at", "http://www.myotherdomain.at");
     $this->srcStringsReplaceWith = $config['srcStringsReplaceWith'] ?? "  ";
     $this->delimiter = $config['delimiter'] ?? ",";
-    $this->newLine = "<br /> \n";
+    $this->newLine = $config['newLineChar'] ?? "<br /> \n";
     $this->redirectRuleOutput = $config['redirectRuleOutput'] ?? 'RedirectMatch 301 %s %s';
     $this->showComment = (bool)$config['showComment'];
 
@@ -132,7 +132,7 @@ class RedirectRulesCreator
             $retval .= $srcStrg . $targetStrg;
 
           $retval .= $this->newLine;
-          $retval .= $this->newLine;
+        
       }
 
       }
